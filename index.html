@@ -395,6 +395,58 @@
       .variant-name span { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--brand); }
       .cart-variant { color: var(--brand); font-size: 0.85rem; font-weight: 600; margin-top: 0.2rem; line-height: 1.35; }
       .menu-note { margin-top: 1.6rem; color: var(--muted); font-size: 0.92rem; }
+      /* ---------- custom cake jump card (top of Menu) ---------- */
+      .cake-jump-card {
+        display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+        background: var(--brand); color: #fff; text-decoration: none;
+        border-radius: var(--radius); padding: 1.05rem 1.25rem; margin-bottom: 1.6rem;
+        box-shadow: var(--shadow);
+      }
+      @media (prefers-color-scheme: dark) { .cake-jump-card { color: #1c0f2b; } }
+      .cake-jump-card:hover { background: var(--brand-deep); }
+      @media (prefers-color-scheme: dark) { .cake-jump-card:hover { color: #fff; } }
+      .cake-jump-text strong { font-family: "DM Serif Display", serif; font-weight: 400; font-size: 1.3rem; display: block; line-height: 1.2; }
+      .cake-jump-text span { font-size: 0.92rem; opacity: 0.92; display: block; margin-top: 0.2rem; line-height: 1.4; }
+      .cake-jump-arrow {
+        flex: none; font-weight: 700; font-size: 0.92rem; white-space: nowrap;
+        background: rgba(255,255,255,0.22); border-radius: 999px; padding: 0.55rem 0.95rem;
+      }
+      @media (max-width: 640px) {
+        .cake-jump-card { padding: 1rem 1.05rem; }
+        .cake-jump-arrow { width: 100%; text-align: center; padding: 0.7rem 0.95rem; }
+        .cake-flavours { scroll-margin-top: 132px; }
+      }
+      /* ---------- custom cakes: flavours & fillings ---------- */
+      .cake-flavours { margin-top: 2rem; margin-bottom: 2rem; scroll-margin-top: 96px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.7rem 1.6rem 1.6rem; }
+      .cake-flavours .script { font-size: 1.8rem; display: block; }
+      .cake-flavours h3 { font-size: clamp(1.7rem, 3.5vw, 2.2rem); margin: 0.2rem 0 0.55rem; }
+      .cake-flavours .cake-intro { color: var(--muted); margin: 0; max-width: 44rem; }
+      .cake-flavours .cake-intro strong { color: var(--ink); }
+      .cake-timing { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem; }
+      .cake-timing-item { background: var(--lav); border-radius: 12px; padding: 0.95rem 1.1rem; }
+      .cake-timing-item .when { font-family: "DM Serif Display", serif; color: var(--brand); font-size: 1.15rem; display: block; line-height: 1.2; }
+      .cake-timing-item .what-for { font-size: 0.93rem; display: block; margin-top: 0.25rem; line-height: 1.45; }
+      .cake-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1rem; margin-top: 1.2rem; align-items: start; }
+      .cake-card { border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem 1.2rem; background: var(--bg); }
+      .cake-card h4 { font-family: "DM Serif Display", serif; font-weight: 400; font-size: 1.3rem; margin: 0 0 0.15rem; color: var(--ink); }
+      .cake-card .cake-card-sub { color: var(--muted); font-size: 0.88rem; margin: 0 0 0.8rem; }
+      .cake-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.42rem 1.2rem; }
+      .cake-list.flavours { grid-template-columns: 1fr 1fr; }
+      .cake-list li { display: flex; gap: 0.55rem; align-items: baseline; font-size: 0.97rem; font-weight: 500; line-height: 1.4; }
+      .cake-list li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); flex: none; transform: translateY(-2px); }
+      .cake-ask { margin: 1.2rem 0 0; color: var(--muted); font-size: 0.95rem; max-width: 44rem; }
+      .cake-ask strong { color: var(--ink); }
+      .cake-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.1rem; align-items: center; }
+      .cake-cta .cake-cta-note { color: var(--muted); font-size: 0.88rem; }
+      @media (max-width: 700px) {
+        .cake-flavours { padding: 1.3rem 1.1rem 1.2rem; }
+        .cake-timing, .cake-grid { grid-template-columns: 1fr; }
+        .cake-list.flavours { grid-template-columns: 1fr 1fr; }
+        .cake-cta .btn { width: 100%; justify-content: center; min-height: 48px; }
+      }
+      @media (max-width: 420px) {
+        .cake-list.flavours { grid-template-columns: 1fr; }
+      }
       .menu-count { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
       .menu-status { color: var(--muted); font-size: 0.85rem; margin: -0.55rem 0 1.1rem; min-height: 1.2em; }
 
@@ -824,8 +876,9 @@
             <div class="step"><div class="num">two</div><h3>Review &amp; send</h3><p>Open your cart, add your name and phone number, choose <b>Pickup</b> or <b>Delivery</b>, pick your date in the calendar — at least 2 days ahead — and add your address if delivering, then tap Send order on WhatsApp.</p></div>
             <div class="step"><div class="num">three</div><h3>Collect or get it delivered</h3><p>There's no fixed pickup or delivery day — your order is baked fresh for the date you pick in your cart. Pick up in St. Augustine, or have your order delivered. Ang Bakes confirms everything with you on WhatsApp.</p></div>
           </div>
-          <div class="week" aria-label="Ordering ahead and catering" style="margin-top:0">
+          <div class="week" aria-label="Ordering ahead, custom cakes and catering" style="margin-top:0">
             <div class="week-row"><span class="day">In advance</span><span class="what"><b>Order at least 2 days ahead</b>Please place your order at least 2 days in advance. Pick your pickup or delivery date in the calendar in your cart when you order — delivery area &amp; fee confirmed on WhatsApp too.</span></div>
+            <div class="week-row"><span class="day">Custom cakes</span><span class="what"><b>1 week ahead — 1–2 weeks for custom toppers &amp; design</b>Cakes need at least 1 week in advance. Cakes with customised toppers or customised designing need 1–2 weeks in advance. Choose your cake flavour and filling from the <a href="#menu">Cake flavours &amp; fillings list on the Menu page</a>.</span></div>
             <div class="week-row"><span class="day">Catering</span><span class="what"><b>Catering-size orders are different</b>Catering orders don't follow the 2-day rule — contact Ang Bakes on WhatsApp for catering orders.</span></div>
           </div>
           <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.6rem">
@@ -848,8 +901,9 @@
             </div>
             <p>Everything at Ang Bakes is <strong>custom made to order</strong> — nothing sits in a display case. Each week brings a fresh menu, mixing long-time favourites with something new from the test kitchen.</p>
             <p>Sweet and savoury favourites are turned out in small batches — custom cakes, cupcakes and baked goodies made to order. There's <strong>no specific pickup day and no specific delivery date</strong> — please order at least 2 days in advance, and pick your pickup or delivery date in the calendar in your cart. Your bakes are made fresh for the date you choose.</p>
-            <div class="week" aria-label="Ordering ahead and catering">
+            <div class="week" aria-label="Ordering ahead, custom cakes and catering">
               <div class="week-row"><span class="day">In advance</span><span class="what"><b>Order at least 2 days ahead</b>There's no specific pickup or delivery day — pick your pickup or delivery date in the calendar in your cart when you order.</span></div>
+              <div class="week-row"><span class="day">Custom cakes</span><span class="what"><b>1 week ahead — 1–2 weeks for custom toppers &amp; design</b>Cakes need at least 1 week in advance. Cakes with customised toppers or customised designing need 1–2 weeks in advance. Choose your cake flavour and filling from the <a href="#menu">Cake flavours &amp; fillings list on the Menu page</a>.</span></div>
               <div class="week-row"><span class="day">Catering</span><span class="what"><b>Catering-size orders are different</b>Catering-size orders don't follow the 2-day rule — contact Ang Bakes on WhatsApp for catering orders.</span></div>
             </div>
           </div>
@@ -862,8 +916,15 @@
           <div class="section-head">
             <span class="script">the good stuff</span>
             <h2>The menu — build your order</h2>
-            <p>The favourites that rotate through the weekly menus. Tap a category to filter, then tap any item to see it up close — choose its flavours or fillings there and add it to your cart. Send everything together in one WhatsApp order. All prices in TT$.</p>
+            <p>The favourites that rotate through the weekly menus. Tap a category to filter, then tap any item to see it up close — choose its flavours or fillings there and add it to your cart. Send everything together in one WhatsApp order. All prices in TT$. Ordering a whole cake? Cake flavours &amp; fillings are listed below the menu items — pick 1 flavour and 1 filling, and order 1 week ahead (1–2 weeks for customised toppers &amp; design).</p>
           </div>
+          <a class="cake-jump-card" id="cakeJumpLink" href="#cake-flavours">
+            <span class="cake-jump-text">
+              <strong>Ordering a custom cake?</strong>
+              <span>See cake flavours &amp; fillings — pick 1 flavour + 1 filling, 1 week ahead.</span>
+            </span>
+            <span class="cake-jump-arrow" aria-hidden="true">Jump to flavours &amp; fillings ↓</span>
+          </a>
           <div class="filters" role="group" aria-label="Filter menu by category" id="filters"></div>
           <div class="menu-search">
             <label class="sr-only" for="menuSearch">Search the menu</label>
@@ -873,6 +934,62 @@
           <p class="menu-status" id="menuStatus" aria-live="polite"></p>
           <div class="menu-grid" id="menuGrid"></div>
           <p class="menu-note">Menus rotate weekly — follow <a href="https://www.instagram.com/angbakes_" target="_blank" rel="noopener">@angbakes_</a> on Instagram, <a href="https://whatsapp.com/channel/0029VbBlD0SElah1EBIJa42f" target="_blank" rel="noopener">join the WhatsApp channel for weekly menus &amp; daily updates</a>, or message on WhatsApp to see what this week's Fresh Picks, Sweet Lime, Treat Sheet or Fab Friday line-up is baking. When you're ready, open your cart to review your total and send your order.</p>
+
+          <!-- CUSTOM CAKES: FLAVOURS & FILLINGS -->
+          <div class="cake-flavours" id="cake-flavours">
+            <span class="script">custom cakes</span>
+            <h3>Cake flavours &amp; fillings</h3>
+            <p class="cake-intro">Ordering a whole cake? <strong>Choose one cake flavour and one filling</strong> from the lists below, then message Ang Bakes on WhatsApp with your picks and the date you need it.</p>
+            <div class="cake-timing" aria-label="How far in advance to order a cake">
+              <div class="cake-timing-item">
+                <span class="when">1 week in advance</span>
+                <span class="what-for"><b>For cakes</b> — please order your cake at least 1 week ahead.</span>
+              </div>
+              <div class="cake-timing-item">
+                <span class="when">1–2 weeks in advance</span>
+                <span class="what-for"><b>For customised toppers &amp; customised designing</b> — cakes with a custom topper or custom design need 1–2 weeks ahead.</span>
+              </div>
+            </div>
+            <div class="cake-grid">
+              <div class="cake-card">
+                <h4>Cake flavours</h4>
+                <p class="cake-card-sub">Pick 1 flavour for your cake.</p>
+                <ul class="cake-list flavours">
+                  <li>Vanilla</li>
+                  <li>Funfetti</li>
+                  <li>Spiced Vanilla</li>
+                  <li>Coffee infused vanilla</li>
+                  <li>Lemon blueberry</li>
+                  <li>Oreo</li>
+                  <li>Chocolate</li>
+                  <li>Guinness Chocolate</li>
+                  <li>Coffee infused Chocolate</li>
+                  <li>Coconut</li>
+                  <li>Red Velvet</li>
+                </ul>
+              </div>
+              <div class="cake-card">
+                <h4>Fillings</h4>
+                <p class="cake-card-sub">Pick 1 filling for your cake.</p>
+                <ul class="cake-list">
+                  <li>Cream cheese frosting</li>
+                  <li>Salted caramel</li>
+                  <li>Lemon/passion fruit curd</li>
+                  <li>Chocolate ganache</li>
+                  <li>Oreo</li>
+                </ul>
+              </div>
+            </div>
+            <p class="cake-ask">Please feel free to ask us about any flavours or fillings that you may have in mind that was not mentioned.</p>
+            <div class="cake-cta">
+              <a class="btn" href="https://wa.me/18686831072?text=Hi%20Ang%20Bakes!%20I%27d%20like%20to%20order%20a%20custom%20cake.%0A%0ACake%20flavour%3A%20%0AFilling%3A%20%0ADate%20needed%3A%20" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                Order a custom cake on WhatsApp
+              </a>
+              <span class="cake-cta-note">Tell Ang your flavour, your filling, and your date.</span>
+            </div>
+          </div>
+
           <div class="channel-strip">
             <div class="left">
               <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><line x1="4" y1="20" x2="4.01" y2="20"/></svg></div>
@@ -889,7 +1006,7 @@
           <div class="section-head">
             <span class="script">visit us</span>
             <h2>Hours, pickup &amp; delivery</h2>
-            <p>Ang Bakes is a home bakery in St. Augustine — there's no walk-in shop, so everything is ordered ahead on WhatsApp and baked fresh to order. There's no specific pickup day and no specific delivery date: please order at least 2 days in advance, and pick your pickup or delivery date in the calendar in your cart when you order. Catering-size orders are different and don't follow the 2-day rule — contact Ang Bakes on WhatsApp for catering orders.</p>
+            <p>Ang Bakes is a home bakery in St. Augustine — there's no walk-in shop, so everything is ordered ahead on WhatsApp and baked fresh to order. There's no specific pickup day and no specific delivery date: please order at least 2 days in advance, and pick your pickup or delivery date in the calendar in your cart when you order. Custom cakes are different: cakes need at least 1 week in advance, and cakes with customised toppers or customised designing need 1–2 weeks in advance — see the <a href="#menu">Cake flavours &amp; fillings list on the Menu page</a> to choose your flavour and filling. Catering-size orders are different and don't follow the 2-day rule — contact Ang Bakes on WhatsApp for catering orders.</p>
           </div>
           <div class="contact-grid">
             <div class="contact-card">
@@ -906,6 +1023,10 @@
                 <div class="contact-row">
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M9 18h6"/></svg>
                   <div><div class="k">Pickup &amp; delivery</div><div class="v">No specific pickup or delivery day — pickup in St. Augustine or delivery, on the date you pick. Order at least 2 days in advance and choose your date in the calendar in your cart. Delivery area &amp; fee confirmed on WhatsApp when you order</div></div>
+                </div>
+                <div class="contact-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <div><div class="k">Custom cakes</div><div class="v">Order at least 1 week in advance — 1–2 weeks for customised toppers &amp; customised designing. Choose 1 cake flavour and 1 filling from the <a href="#menu">Cake flavours &amp; fillings list</a></div></div>
                 </div>
                 <div class="contact-row">
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -1207,7 +1328,17 @@
         { name: "S'mores Cake Slice", cat: "slices", price: 25, desc: "Cake slice" },
         { name: "Red Velvet Cake Slice", cat: "slices", price: 30, desc: "Cake slice" },
         { name: "Salted Caramel Chocolate Cake Slice", cat: "slices", price: 30, desc: "Cake slice" },
-        { name: "Coffee Infused Caramel Cake Slice", cat: "slices", price: 30, desc: "Cake slice" }
+        { name: "Coffee Infused Caramel Cake Slice", cat: "slices", price: 30, desc: "Cake slice" },
+        /* Sweet — coconut sweet bread and the waffles sit in Sweet too */
+        { name: "Coconut Sweet Bread", cat: "sweet", price: 80, desc: "Coconut sweet bread" },
+        { name: "Classic Waffles", cat: "sweet", price: 40, desc: "Classic waffles", unit: "for 4" },
+        { name: "Pumpkin Spice Waffles", cat: "sweet", price: 40, desc: "Pumpkin spice waffles", unit: "for 4" },
+        { name: "Chocolate Waffles", cat: "sweet", price: 45, desc: "Chocolate waffles", unit: "for 4" }
+        /* Muffins and Banana Bread are in the sheet (under the Sweet,
+           Muffins and Sweet Breads categories there, all shown here as
+           Sweet) as Available = No until their prices are confirmed, so
+           they are deliberately NOT in this fallback — they appear only
+           when the sheet marks them Available = Yes. */
       ];
       var CATS = [
         { id: "all", label: "Everything" },
@@ -2216,7 +2347,12 @@
       function sheetCategoryId(raw) {
         var c = String(raw || "").trim().toLowerCase();
         if (c.indexOf("savoury") === 0 || c.indexOf("savory") === 0) return "savoury";
+        /* Muffins, Sweet Breads and Waffles are not categories of their
+           own on the site — everything in them shows under Sweet. */
+        if (c.indexOf("sweet bread") === 0) return "sweet";
         if (c.indexOf("sweet") === 0) return "sweet";
+        if (c.indexOf("muffin") === 0) return "sweet";
+        if (c.indexOf("waffle") === 0) return "sweet";
         if (c.indexOf("bread") === 0) return "breads";
         if (c.indexOf("cake") === 0 || c.indexOf("slice") > -1) return "slices";
         return null;
@@ -2462,6 +2598,16 @@
       });
       showPage(pageFromHash());
       if (location.hash) window.scrollTo(0, 0);
+      var cakeJump = document.getElementById("cakeJumpLink");
+      if (cakeJump) {
+        cakeJump.addEventListener("click", function (e) {
+          e.preventDefault();
+          var target = document.getElementById("cake-flavours");
+          if (!target) return;
+          var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+        });
+      }
     </script>
   </body>
 </html>
